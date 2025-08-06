@@ -1,0 +1,264 @@
+/* public/style.css */
+
+/* Apply Inter font globally */
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Smooth scroll behavior for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom styles for navigation links */
+.nav-link {
+    @apply text-lg font-medium text-gray-200 hover:text-teal-400 transition-colors duration-300 relative;
+}
+.nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-full h-0.5 bg-teal-400 transform scale-x-0 origin-left transition-transform duration-300;
+}
+.nav-link:hover::after {
+    @apply scale-x-100;
+}
+
+/* Button Styles */
+.btn-primary {
+    @apply inline-flex items-center bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl;
+}
+.btn-secondary {
+    @apply inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl;
+}
+
+/* Card Styles */
+.card-glass {
+    @apply bg-gray-800 bg-opacity-70 p-6 rounded-2xl shadow-xl border border-indigo-700 transform transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl backdrop-blur-sm;
+}
+.card-glass-alt {
+    @apply bg-gray-900 bg-opacity-70 p-8 rounded-2xl shadow-xl border border-pink-700 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl backdrop-blur-sm;
+}
+
+/* Section Heading Style */
+.section-heading {
+    @apply text-4xl md:text-5xl font-extrabold text-teal-400 text-center mb-12 relative pb-4;
+}
+.section-heading::after {
+    content: '';
+    @apply absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1.5 bg-teal-500 rounded-full;
+}
+
+/* Skill Icon Card Style */
+.skill-icon-card {
+    @apply flex flex-col items-center justify-center p-6 bg-gray-800 bg-opacity-70 rounded-2xl shadow-lg border border-blue-700 transition-all duration-300 hover:scale-110 hover:shadow-xl cursor-pointer;
+}
+
+/* Contact Item Style */
+.contact-item {
+    @apply flex items-center space-x-4 bg-gray-800 bg-opacity-70 p-5 rounded-xl shadow-md border border-yellow-700 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg backdrop-blur-sm;
+}
+
+/* Hero Section Specific Styles and Animations */
+#hero {
+    position: relative;
+    overflow: hidden; /* Ensure background elements don't spill out */
+}
+
+/* Dynamic Glowing Background Elements */
+.background-glow-top {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(100, 0, 255, 0.4), transparent 70%); /* Purple glow */
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: glow-move-top 15s infinite alternate ease-in-out;
+    z-index: 0;
+}
+
+.background-glow-bottom {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(0, 200, 255, 0.4), transparent 70%); /* Blue glow */
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: glow-move-bottom 18s infinite alternate-reverse ease-in-out;
+    z-index: 0;
+}
+
+/* Subtle Grid Overlay */
+.background-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+
+/* Hero Content Card - Add a subtle outer glow */
+.hero-content-card {
+    position: relative; /* Needed for pseudo-elements */
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.4); /* Initial glow */
+    transition: box-shadow 0.5s ease-in-out;
+}
+.hero-content-card:hover {
+    box-shadow: 0 0 60px rgba(0, 255, 255, 0.6), 0 0 100px rgba(100, 0, 255, 0.3); /* Enhanced glow on hover */
+}
+
+/* Photo Container - Add a more pronounced glow on hover */
+.photo-container img {
+    transition: box-shadow 0.3s ease-in-out;
+}
+.photo-container:hover img {
+    box-shadow: 0 0 25px rgba(32, 201, 151, 0.8), 0 0 40px rgba(32, 201, 151, 0.5);
+}
+
+
+/* Keyframe Animations */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUpMore {
+    from { opacity: 0; transform: translateY(60px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseBorder {
+    0% { border-color: #20c997; box-shadow: 0 0 0 0 rgba(32, 201, 151, 0.7); }
+    50% { border-color: #1a9e77; box-shadow: 0 0 0 10px rgba(32, 201, 151, 0); }
+    100% { border-color: #20c997; box-shadow: 0 0 0 0 rgba(32, 201, 151, 0.7); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Text Reveal Animation */
+@keyframes text-reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        clip-path: inset(0 100% 0 0);
+    }
+    10% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Background Glow Movement */
+@keyframes glow-move-top {
+    0% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(10%, 10%) scale(1.05); }
+    50% { transform: translate(0, 20%) scale(1.1); }
+    75% { transform: translate(-10%, 10%) scale(1.05); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes glow-move-bottom {
+    0% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(-10%, -10%) scale(1.05); }
+    50% { transform: translate(0, -20%) scale(1.1); }
+    75% { transform: translate(10%, -10%) scale(1.05); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+.animate-glow-text {
+    animation: glow-text 2s ease-in-out infinite alternate;
+}
+
+
+@keyframes glow-text {
+    0% { text-shadow: 0 0 10px #0ff; color: #0ff; }
+    100% { text-shadow: 0 0 25px #f0f; color: #f0f; }
+}
+
+
+.animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
+.animate-fade-in-up { animation: fadeInUp 1s ease-out forwards; }
+.animate-fade-in-up-delay { animation: fadeInUp 1s ease-out 0.5s forwards; opacity: 0; } /* Added opacity: 0 to hide before animation */
+.animate-fade-in-up-more { animation: fadeInUpMore 1s ease-out 0.7s forwards; opacity: 0; } /* Added opacity: 0 to hide before animation */
+.animate-pulse-border { animation: pulseBorder 2s infinite ease-in-out; }
+.animate-float { animation: float 3s infinite ease-in-out; }
+.animate-float-delay { animation: float 3s infinite ease-in-out 1s; } /* Delayed float animation */
+.animate-pulse { animation: pulse 1.5s infinite ease-in-out; }
+.animate-text-reveal { animation: text-reveal 1.5s ease-out forwards; }
+
+
+/* Responsive adjustments for main content padding */
+main {
+    padding-top: 6rem; /* Default for larger screens */
+}
+
+@media (max-width: 768px) {
+    main {
+        padding-top: 8rem; /* More padding for smaller screens due to multi-line header */
+    }
+    .section-heading {
+        font-size: 3rem; /* Smaller heading on mobile */
+    }
+    #hero h1 { /* Targeting hero h1 specifically */
+        font-size: 4rem; /* Adjust hero heading for mobile */
+    }
+    #hero p { /* Targeting hero p specifically */
+        font-size: 1.5rem; /* Adjust hero paragraph for mobile */
+    }
+    .skill-icon-card {
+        padding: 1.25rem; /* Adjust padding for smaller cards on mobile */
+    }
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    .contact-item i {
+        margin-bottom: 0.5rem;
+    }
+}
+.text-gradient {
+    background: linear-gradient(to right, #e3301c, #f0f, rgba(26, 255, 0, 0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ensure the body takes up at least the full viewport height */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Make sure main content pushes footer down */
+main {
+    flex: 1;
+}
+
